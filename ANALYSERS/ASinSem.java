@@ -89,7 +89,7 @@ public class ASinSem {
                 token = siguiente();
             }
             aLex.imprimirTokens();
-            System.exit(0); // Se detiene la ejecucion del proceso (en este caso el ASintactico)
+            System.exit(0); // Stop exec
         }
     }
 
@@ -109,9 +109,9 @@ public class ASinSem {
             p();
         } else if (!token.getNombre().equals("$")) {
             System.out.println("Error sintactico en la linea " + aLex.getLinea());
-            System.exit(0); // Se detiene la ejecucion del proceso (en este caso el ASintactico)
+            System.exit(0); // Stop exec
         } else {
-            imprimir(3); // Solo desde p se llega a fin de fichero "$"
+            imprimir(3);
         }
     }
 
@@ -170,7 +170,6 @@ public class ASinSem {
             b = new Atrib(s.getTipo());
             b.setTipoRet(s.getTipoRet());
         }
-        // System.out.println(b.tipo + " " + b.getTipoRet());
         return b;
     }
 
@@ -545,8 +544,6 @@ public class ASinSem {
             k = k();
             tabla.insertaTipoTS(tab, id_pos, t.getTipo());
             cont++;
-            // tabla.insertaDespTS(id_pos, iToS(despL));
-            // despL += t.getAncho();
             if (k.param.equals("vacio")) {
                 a = new Atrib(k.getTipo(), t.getTipo());
             } else {
@@ -575,8 +572,6 @@ public class ASinSem {
             k1 = k();
             tabla.insertaTipoTS(tab, id_pos, t.getTipo());
             cont++;
-            // tabla.insertaDespTS(id_pos, iToS(despL));
-            // despL += t.getAncho();
             if (k1.param.equals("vacio")) {
                 k = new Atrib(k1.getTipo(), t.getTipo());
             } else {
@@ -819,7 +814,7 @@ public class ASinSem {
         crearParse();
         despG = 0;
         despL = 0;
-        token = siguiente(); // Primer token
+        token = siguiente(); // First Token
         p();
         tabla.destruyeTS();
         tabla.imprimirTabla();

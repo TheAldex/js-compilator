@@ -1,8 +1,8 @@
 # JS-COMPILATOR
-A mini Language Processor for JavaScript developed in Java because of OOP facilities.
+A mini Language Processor for pseudo JavaScript language developed in Java because of OOP facilities.
 
 ### DESCRIPTION
-This Processor supports a pseudo language based on Javascript with some modifications. To make the process easier, below are the valid language tokens, as well as the free context grammar for the parser and a brief demonstration of the logic followed in the semantic parser implementation.
+This Processor supports a pseudo language based on Javascript with some modifications. To make the process easier, below are the valid language tokens, as well as the free context grammar for the recursive descending parser (there is a certain function for each grammar rule) and a brief demonstration of the logic followed in the semantic parser implementation. There is an error controller too (see the code for more information).
 
 ### TOKENS
 <id, posTS>

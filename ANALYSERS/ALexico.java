@@ -5,7 +5,7 @@ import java.util.*;
 
 public class ALexico {
 
-    // Definicion variables a usar en el programa
+    // Vars definition
     private FileReader fileReader;
     private BufferedReader bufferedReader;
     private char caracter;
@@ -27,7 +27,6 @@ public class ALexico {
             e.printStackTrace();
         }
         bufferedReader = new BufferedReader(fileReader);
-        // tablaGlobal = new ArrayList<>();
         this.tabla = tabla;
         contador = 0;
         estado = 0;
@@ -41,7 +40,7 @@ public class ALexico {
         return this.linea;
     }
 
-    // Definicion del objeto Token que se generara dependiendo del atributo
+    // Object Token
     public class Token {
         private String nombre;
         private String atributoS;
@@ -92,11 +91,10 @@ public class ALexico {
         return listaTokens;
     }
 
-    // Inicializar la lista de palabras reservadas
+    // Reserved words
     private String[] palabras = new String[] { "if", "else", "print", "input", "return", "string", "int", "boolean",
             "let" };
     private ArrayList<String> pReservadas = new ArrayList<>(Arrays.asList(palabras));
-    // private ArrayList<String> tablaGlobal;
 
     public Token aLexico() {
         try {
@@ -180,14 +178,12 @@ public class ALexico {
                             posTS = tabla.indexOfLex(lexema);
                             if (posTS < 0) {
                                 if (zonaDecl) {
-                                    // tablaGlobal.add(lexema);
                                     tabla.insertaLexema(lexema);
                                     aux = caracter;
                                     return generarToken("id", tabla.getTSActualSize(), "actual");
                                 } else {
                                     posTS = tabla.indexOfLexG(lexema);
                                     if (posTS < 0) {
-                                        // tablaGlobal.add(lexema);
                                         tabla.insertaGlobal(lexema);
                                         aux = caracter;
                                         return generarToken("id", tabla.getTSGlobalSize(), "global");
