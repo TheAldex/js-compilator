@@ -129,6 +129,6 @@ Productions = {
     
 }
 
-# SEMANTIC RULES
+### SEMANTIC RULES
 It has been decided to implement a translation design directed by the syntax (implemented in the code).
 
